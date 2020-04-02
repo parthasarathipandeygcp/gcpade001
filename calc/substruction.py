@@ -1,5 +1,3 @@
-
-
-def dosubstruction(a,b):
-    c= a-b
-    return c
+def substruction(a,b):
+    result=a-b
+    return result
