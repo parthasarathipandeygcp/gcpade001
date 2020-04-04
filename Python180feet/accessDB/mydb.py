@@ -12,7 +12,7 @@ import mysql.connector
 mydb = mysql.connector.connect(
   host="35.200.219.211",
   user="partha",
-  passwd="Partha@123",
+  passwd="Partha@123"
 )
 
 print(mydb)
@@ -226,7 +226,7 @@ for x in myresult:
   print(x)
 
 #Join users and products to see the name of the users favorite product:
-
+"""
 sql = "SELECT \
   users.name AS user, \
   products.name AS favorite \
@@ -239,3 +239,4 @@ myresult = mycursor.fetchall()
 
 for x in myresult:
   print(x)
+"""
