@@ -17,4 +17,7 @@ with open(datapath+"/mytest.csv","r") as f:
     for i in reader:
         print(i)
 
-
+f=open(datapath+"/person.csv","r")
+reader=csv.DictReader(f)
+for i in reader:
+    print((i['firstname']))
