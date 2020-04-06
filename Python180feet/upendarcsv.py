@@ -1,23 +1,50 @@
 import csv
-projectpath="C:/Users/LENOVO/myproject/gcpade001"
+projectpath = "c:/Users/LENOVO/myproject/gcpade001/"
 datapath=projectpath+"/data"
 
-#f=open(datapath+"/upendar.txt","a+")
-#f.write("hi my name is upendar \r")
-#f.close()
+#read
+f=open(datapath+"/myfile.txt",'r')
+#print(f.read())
+for i in f:
+ print(i)
+f.close()
 
+#write
+f=open(datapath+"/upendar.txt",'w+')
+f.write("my name is upendar")
+for i in f:
+ print(i)
+f.close()
 
-f=open(datapath+"/person.csv","r")
-reader=csv.reader(f)
+#adding
+f=open(datapath+"/upendar.txt",'a+')
+f.write("my name is konda \r")
+for i in f:
+ print(i)
+f.close()
+
+#delimiters csv files
+f=open(datapath+"/innovators.csv",'r')
+reader=csv.reader(f,delimiter="\t")
 for i in reader:
-    print(i)
+ print(i)
+f.close()
 
-with open(datapath+"/mytest.csv","r") as f:
-    reader = csv.reader(f,delimiter='$')
-    for i in reader:
-        print(i)
-
-f=open(datapath+"/person.csv","r")
-reader=csv.DictReader(f)
+#delimiters csv files
+f=open(datapath+"/mytest.csv",'r')
+reader=csv.reader(f,delimiter="$")
 for i in reader:
-    print((i['firstname']))
+ print(i)
+f.close()
+
+#delimiters csv files with dict
+f=open(datapath+"/mytest.csv",'r')
+reader=csv.DictReader(f,delimiter="$")
+for i in reader:
+ print(i)
+f.close()
+
+
+
+
+

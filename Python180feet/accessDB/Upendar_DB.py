@@ -12,36 +12,38 @@ mydb=mysql.connector.connect(
 print(mydb)
 
 mycursor=mydb.cursor()
-mycursor.execute("drop table employee")
-sql="create table employee (name varchar(200), address varchar(300))"
+mycursor.execute("drop table emp")
+sql="create table emp (name varchar(200), address varchar(300))"
 mycursor.execute(sql)
 
 mycursor.execute("show tables")
 for y in mycursor:
     print(y)
 
-sql="insert into employee (name,address) values('upendar', 'hyderabad')"
 
-#mycursor.execute(sql)
-sql="insert into employee (name,address) values(%s,%s)"
-val=[('Peter', 'Lowstreet 4'),
-  ('Amy', 'Apple st 652'),
-  ('Hannah', 'Mountain 21'),
-  ('Michael', 'Valley 345'),
-  ('Sandy', 'Ocean blvd 2'),
-  ('Betty', 'Green Grass 1'),
-  ('Richard', 'Sky st 331'),
-  ('Susan', 'One way 98'),
-  ('Vicky', 'Yellow Garden 2'),
-  ('Ben', 'Park Lane 38'),
-  ('William', 'Central st 954'),
-  ('Chuck', 'Main Road 989'),
-  ('Viola', 'Sideway 1633')]
-mycursor.executemany(sql,val)
+sql="insert into emp (name,address) values('upendar', 'banglore')"
+mycursor.execute(sql)
 mydb.commit()
-mycursor.execute("select * from employee")
-
-myresult = mycursor.fetchall()
+mycursor.execute("select * from emp")
+myresult=mycursor.fetchall()
 for i in myresult:
     print(i)
+
+
+sql="select * from employee"
+mycursor.execute(sql)
+for i in mycursor:
+    print(i)
+
+
+sql="select a.* \
+    b.* \
+    from employee as a\
+    inner join emp as b\
+    on a.name=b.name"
+
+mycursor.execute(sql)
+for i in mycursor:
+    print(i)
+
 
