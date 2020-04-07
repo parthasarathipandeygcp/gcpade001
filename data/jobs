@@ -1,0 +1,16 @@
+job_name|last_run|lastrun_status|dependent_job
+VS6: Clean MSEG (p02 & rbp)|'2020-04-02 12:30:23'|pass|NA
+VS6: DVSM Edge Assignment|'2020-04-02 13:30:23'|pass|NA
+VS6: DVSM Edge Assignment to Table|'2020-04-02 14:30:23'|pass|VS6: Clean MSEG (p02 & rbp)
+VS6: mount blob storage to DBFS|'2020-04-02 15:30:23'|fail|VS6: DVSM Edge Assignment to Table
+VS6: MSEG Event Linker 1/6|'2020-04-02 16:30:23'|pass|VS6: DVSM Edge Assignment to Table
+VS6: MSEG Event Linker 2/6|'2020-04-02 16:30:23'|pass|VS6: DVSM Edge Assignment to Table
+VS6: MSEG Event Linker 3/6|'2020-04-02 16:30:23'|fail|VS6: DVSM Edge Assignment to Table
+VS6: MSEG Event Linker 4/6|'2020-04-02 17:45:23'|pass|VS6: MSEG Event Linker 3/6
+VS6: MSEG Event Linker 5/6|'2020-04-02 17:45:23'|pass|VS6: MSEG Event Linker 3/6
+VS6: MSEG Event Linker 6/6|'2020-04-02 17:45:23'|unknown|VS6: mount blob storage to DBFS,VS6: MSEG Event Linker 3/6
+VS6: SSO CX|'2020-04-02 19:45:23'|pass|VS6: mount blob storage to DBFS,VS6: MSEG Event Linker 3/6
+VS6: SSO Demand Forecast/Actual|'2020-04-02 20:45:23'|unknown|VS6: DVSM Edge Assignment,VS6: mount blob storage to DBFS,VS6: MSEG Event Linker 3/6
+VS6: SSO RX|'2020-04-02 21:45:23'|pass|VS6: mount blob storage to DBFS,VS6: MSEG Event Linker 3/6
+
+
