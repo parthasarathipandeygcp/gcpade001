@@ -12,4 +12,5 @@ VS6: MSEG Event Linker 6/6|'2020-04-02 17:45:23'|unknown|VS6: mount blob storage
 VS6: SSO CX|'2020-04-02 19:45:23'|pass|VS6: mount blob storage to DBFS,VS6: MSEG Event Linker 3/6
 VS6: SSO Demand Forecast/Actual|'2020-04-02 20:45:23'|unknown|VS6: DVSM Edge Assignment,VS6: mount blob storage to DBFS,VS6: MSEG Event Linker 3/6
 VS6: SSO RX|'2020-04-02 21:45:23'|pass|VS6: mount blob storage to DBFS,VS6: MSEG Event Linker 3/6
-VS6: email notification|'2020-04-02 21:45:23'|pass|VS6: DVSM Edge Assignment to Table,VS6: SSO Demand Forecast/Actual
+
+
