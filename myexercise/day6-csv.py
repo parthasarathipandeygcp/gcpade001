@@ -7,6 +7,24 @@ mydb=mysql.connector.connect(
     password="Upendar@123",
     database="mydb_upendar"
 )
+
+mydb = mysql.connector.connect(
+  host="35.200.219.211",
+  user="partha",
+  passwd="Partha@123"
+)
+
+print(mydb)
+
+# List all the data bases in the dbserver
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SHOW DATABASES")
+
+for x in mycursor:
+  print(x)
+
 mycursor=mydb.cursor()
 mycursor.execute("drop table Mytable")
 sql="create table Mytable (job_name varchar(200), last_run varchar(200), lastrun_status varchar(200), dependent_job varchar(200))"

@@ -1,7 +1,7 @@
-from calc.division import division
-from calc.multiplication import multiplication
-from calc.sum import sum
-from calc.substruction import substruction
+from myprojects.division import division
+from myprojects.multiplication import multiplication
+from myprojects.sum import sum
+from myprojects.substruction import substruction
 
 number_1=float(input("Enter your first no: "))
 number_2=float(input("Enter your second no: "))
