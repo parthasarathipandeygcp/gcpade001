@@ -21,16 +21,16 @@ for y in mycursor:
 projectpath = "c:/Users/LENOVO/myproject/gcpade001/"
 datapath=projectpath+"/data"
 
-f=open(datapath+"/jobs.csv")
+f=open(datapath+"/jobs.csv",'r')
 reader=csv.reader(f,delimiter='|')
-columns = next(reader)
-query = 'insert into Mytable({0}) values ({1})'
-query = query.format(','.join(columns), ','.join('?' * len(columns)))
-mycursor.executemany(query,columns)
-mydb.commit()
-myresult=mycursor.fetchall()
-for i in myresult:
+#columns = next(reader)
+#query = 'insert into Mytable({0}) values ({1})'
+#query = query.format(','.join(columns), ','.join('?' * len(columns)))
+#mycursor.execute(reader)
+#mydb.commit()
+#myresult=mycursor.fetchall()
+#for i in myresult:
+for i in reader:
     print(i)
 f.close()
-
 
