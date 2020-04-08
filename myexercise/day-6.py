@@ -1,36 +1,17 @@
-import mysql.connector
 import csv
-#import datetime
-mydb=mysql.connector.connect(
-    host="35.200.219.211",
-    user="upendar",
-    password="Upendar@123",
-    database="mydb_upendar"
-)
-mycursor=mydb.cursor()
-mycursor.execute("drop table Mytable")
-sql="create table Mytable (job_name varchar(200), last_run varchar(200), lastrun_status varchar(200), dependent_job varchar(200))"
-mycursor.execute(sql)
-
-mycursor.execute("show tables")
-for y in mycursor:
-    print(y)
-
-
 
 projectpath = "c:/Users/LENOVO/myproject/gcpade001/"
 datapath=projectpath+"/data"
 
 f=open(datapath+"/jobs.csv",'r')
-reader=csv.reader(f,delimiter='|')
-#columns = next(reader)
-#query = 'insert into Mytable({0}) values ({1})'
-#query = query.format(','.join(columns), ','.join('?' * len(columns)))
-#mycursor.execute(reader)
-#mydb.commit()
-#myresult=mycursor.fetchall()
-#for i in myresult:
+reader=csv.DictReader(f,delimiter='|')
 for i in reader:
-    print(i)
+    if (i['lastrun_status']) == 'unknown':
+        #print(i)
+        print("email notification got failed")
+        print('Failed job:', i['job_name'],', Time:',i['last_run'], ', Status:',i['lastrun_status'])
+        print('Reason: the Dependent jobs are fail or unknown', 'Dependent jobs:',i['dependent_job'])
 f.close()
+
+
 
