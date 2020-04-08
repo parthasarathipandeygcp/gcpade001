@@ -166,16 +166,13 @@ for x in myresult:
 
 
 
-
-
-
 #Write code to display  office address of all employees
 sql="select employees.employeNum, employees.lastname, employees.firstname, employees.extension\
             ,employees.email, employees.officecode ,employees.reportsTo, employees.jobtitle\
             ,offices.city,offices.phone, offices.addressline1,offices.addressline2 \
             ,offices.state ,offices.country,offices.postalcode,offices.territory\
             from employees  \
-            left join offices \
+            inner join offices \
             on employees.officecode=offices.officecode"
 
 mycursor.execute(sql)
@@ -185,18 +182,17 @@ for x in myresult:
 
 
 
-
 #Write a code to display the customer name, product he/she ordered and the shipping date
 sql= "select customers.CustomerName\
-             ,orders.shippeddate\
-             ,products.productName\
-             from customers\
-             left join orders\
+            ,products.productName\
+            ,orders.shippeddate\
+            from customers\
+            inner join orders\
             on customers.customerNum=orders.customerNum\
-where customerNum in  \
-(select orders.customerNum, orderdetails.productcode from orders left join orderdetails on orders.OrderNum=orderdetails.OrderNum)\
-where OrderNum in\
-(select orderdetails.OrderNum, products.productName from orderdetails left join products on orderdetails.productcode=products.productcode)"
+            inner join orderdetails\
+            on  orders.OrderNum=orderdetails.OrderNum\
+            inner join products\
+            on  products.productcode=orderdetails.productcode"
 
 mycursor.execute(sql)
 myresult = mycursor.fetchall()

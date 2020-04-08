@@ -8,14 +8,6 @@ mydb=mysql.connector.connect(
     database="mydb_upendar"
 )
 
-mydb = mysql.connector.connect(
-  host="35.200.219.211",
-  user="partha",
-  passwd="Partha@123"
-)
-
-print(mydb)
-
 # List all the data bases in the dbserver
 
 mycursor = mydb.cursor()
