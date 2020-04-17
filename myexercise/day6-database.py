@@ -5,7 +5,7 @@ mydb = mysql.connector.connect(
   host="35.200.219.211",
   user="upendar",
   passwd="Upendar@123",
-   database="MYDB_upendar"
+   database="upendar_database"
 )
 
 print(mydb)
