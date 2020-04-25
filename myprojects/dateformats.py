@@ -54,6 +54,18 @@ print(diff)
 months=date1.month - date2.month+12*(date1.year-date2.year)
 print(months,'months')
 
+dt=datetime.date(1985,1,11)
+delta=relativedelta(days=30)
+print(dt + delta)
+
+
+
+
+
+
+
+
+
 
 
 
