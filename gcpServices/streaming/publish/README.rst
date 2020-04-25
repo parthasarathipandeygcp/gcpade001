@@ -1,9 +1,10 @@
 
-pip install google-cloud-pubsub==0.27.0
+python3.8 -m pip install google-cloud-pubsub  /
+pip install google-cloud-pubsub
 gcloud auth application-default login
 
 (1) First of all, simply try to run:
-        python3 send_sensor_data.py --speedFactor=30
+        python3.8 send_sensor_data.py --speedFactor=30
 
     If this fails, look at your error.  Is it because a module could not be found
     or is it because the pubsub module has no attribute named 'Client'?

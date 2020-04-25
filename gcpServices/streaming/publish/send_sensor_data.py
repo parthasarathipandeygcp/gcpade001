@@ -1,3 +1,4 @@
+#! /usr/bin/python3.8
 import time
 import gzip
 import logging
@@ -7,7 +8,7 @@ from google.cloud import pubsub
 
 TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 TOPIC = 'sandiego'
-INPUT = 'sensor_obs2008.csv.gz'
+INPUT = 'sensor_obs.csv.gz'
 
 def publish(publisher, topic, events):
    numobs = len(events)
@@ -32,9 +33,10 @@ def simulate(topic, ifp, firstObsTime, programStart, speedFactor):
    topublish = list() 
 
    for line in ifp:
+       line = line.decode('utf-8')
        event_data = line   # entire line of input CSV is the message
        obs_time = get_timestamp(line) # from first column
-
+       print(line)
        # how much time should we sleep?
        if compute_sleep_secs(obs_time) > 1:
           # notify the accumulated topublish
@@ -54,7 +56,7 @@ def simulate(topic, ifp, firstObsTime, programStart, speedFactor):
 def peek_timestamp(ifp):
    # peek ahead to next line, get timestamp and go back
    pos = ifp.tell()
-   line = ifp.readline()
+   line = ifp.readline().decode('utf-8')
    ifp.seek(pos)
    return get_timestamp(line)
 

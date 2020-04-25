@@ -1,0 +1,40 @@
+
+python3.8 -m pip install google-cloud-pubsub
+pip install google-cloud-pubsub
+
+setup the project: Simulate large amount traffic data
+
+
+gsutil cp  sensor_obs2008.csv.gz gs://psp-class-stream/sandiego/
+
+gsutil cp gs://psp-class-stream/sandiego/sensor_obs2008.csv.gz .
+Create a topic called sandiego:
+
+gcloud pubsub topics create sandiego
+
+Create a subscription to topic sandiego:
+
+gcloud pubsub subscriptions create --topic sandiego sandiegosubs
+gcloud pubsub subscriptions create --topic sandiego sandiegosubs_2
+
+Run script to download sensor data:
+
+./download_data.sh
+(Optional). If you need to authenticate a shell to ensure we have the right permissions:
+
+gcloud auth application-default login
+
+Run python script to simulate one hour of data per minute:
+
+./send_sensor_data.py --speedFactor=60 --project=gcpdeb00
+
+Then run the following command 
+option-1
+
+gcloud pubsub subscriptions pull --auto-ack sandiegosubs
+option-2
+while [ i>0 ]
+do
+	gcloud pubsub subscriptions pull --auto-ack sandiegosubs_2
+	export i=1	 
+done
