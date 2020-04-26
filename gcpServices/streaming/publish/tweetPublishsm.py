@@ -2,7 +2,7 @@ from google.cloud import pubsub_v1
 import json 
 
 project='gcpdeb001'
-TOPIC='twitter_topic'
+TOPIC='twitter_topic_ing'
 # Configure the connection
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project, TOPIC)

@@ -1,6 +1,6 @@
 import os
 import tweepy
-import tweetPublish
+import tweetPublishsm
 
 # authorization tokens
 consumer_key = os.environ['twitter_api_key']
@@ -40,7 +40,7 @@ class StreamListener(tweepy.StreamListener):
  #       with open("out.csv", "a", encoding='utf-8') as f:
  #           f.write("%s,%s,%s,%s,%s,%s\n" % (status.created_at,status.user.screen_name,is_retweet,is_quote,text,quoted_text))
         createdtime=str(status.created_at)
-        tweets={'tweet_id':status.id_str,'created_at':createdtime, 'user':status.user.screen_name,'user_description':status.user.description,'location':status.user.location, 'is_retweet': is_retweet,'is_quote':is_quote, 'text': text, 'quoted_text':quoted_text }
+        tweets={'tweet_id':status.id_str,'created_at':createdtime, 'user':status.user.screen_name,'user_description':status.user.description,'location':status.user.location, 'is_retweet': is_retweet,'is_quote':is_quote, 'text': text }
         print (status.id_str)
         tweetPublish.write_to_topic(tweets)
         #print("%s,%s,%s,%s,%s,%s\n" % (status.created_at,status.user.screen_name,is_retweet,is_quote,text,quoted_text))
