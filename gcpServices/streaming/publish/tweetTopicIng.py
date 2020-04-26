@@ -40,7 +40,7 @@ class StreamListener(tweepy.StreamListener):
  #       with open("out.csv", "a", encoding='utf-8') as f:
  #           f.write("%s,%s,%s,%s,%s,%s\n" % (status.created_at,status.user.screen_name,is_retweet,is_quote,text,quoted_text))
         createdtime=str(status.created_at)
-        tweets={'tweet_id':status.id_str,'created_at':createdtime, 'user':status.user.screen_name,'location':status.user.location, 'is_retweet': is_retweet,'is_quote':is_quote}
+        tweets={'tweet_id':status.id_str,'created_at':createdtime, 'user':status.user.screen_name,'location':status.user.location}
         print (status.id_str)
         tweetPublishsm.write_to_topic(tweets)
         #print("%s,%s,%s,%s,%s,%s\n" % (status.created_at,status.user.screen_name,is_retweet,is_quote,text,quoted_text))
