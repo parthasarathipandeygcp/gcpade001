@@ -1,7 +1,7 @@
 {"tweet_id":"integer",
-"created_at":"datetime", 
+"created_at":"timestamp", 
 "user":"string",
 "location":"string",  
-"is_retweet'":"string",
-"is_quote":"string"
+"is_retweet'":"boolean",
+"is_quote":"boolean"
 }
