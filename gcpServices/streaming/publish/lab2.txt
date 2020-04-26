@@ -5,9 +5,9 @@ pip install google-cloud-pubsub
 setup the project: Simulate large amount traffic data
 
 
-gsutil cp  sensor_obs2008.csv.gz gs://psp-class-stream/sandiego/
+gsutil cp  sensor_obs.csv.gz gs://psp-class-stream/sandiego/
 
-gsutil cp gs://psp-class-stream/sandiego/sensor_obs2008.csv.gz .
+gsutil cp gs://psp-class-stream/sandiego/sensor_obs.csv.gz .
 Create a topic called sandiego:
 
 gcloud pubsub topics create sandiego
