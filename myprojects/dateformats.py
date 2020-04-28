@@ -60,6 +60,19 @@ print(dt + delta)
 
 
 
+aaa="abcdef"
+for i in aaa:
+    if i =="a" or i =="d":
+       continue
+    print("letter :", i)
+
+bbb="abcdef"
+for i in bbb:
+    if i =="c" or i =="d":
+       break
+    print("letter :", i)
+
+
 
 
 

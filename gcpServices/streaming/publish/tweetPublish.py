@@ -1,7 +1,7 @@
 from google.cloud import pubsub_v1
 import json 
 
-project='gcpdeb001'
+project='upendar'
 TOPIC='twitter_topic'
 # Configure the connection
 publisher = pubsub_v1.PublisherClient()
