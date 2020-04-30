@@ -12,6 +12,8 @@ data = {"A" : ["John","Deep","Julia","Kate","Sandy"],
 
 print(data)
 
+
+
 for i in range(1,10,2):
     print(i)
 
@@ -38,9 +40,11 @@ for i in bbb:
        break
     print("letter :", i)
 
+
 i=1
 while i < 10:
 
     i = i + 2
+
     print("new i :", i)
 
